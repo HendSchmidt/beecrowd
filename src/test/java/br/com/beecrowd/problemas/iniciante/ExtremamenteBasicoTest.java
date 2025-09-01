@@ -1,5 +1,6 @@
 package br.com.beecrowd.problemas.iniciante;
 
+import br.com.beecrowd.problemas.iniciante.impl.ExtremamenteBasico;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,33 +22,12 @@ class ExtremamenteBasicoTest {
 	}
 
 	@ParameterizedTest(name = "Arranjo {index} : {0} + {1} = {2}")
-	@MethodSource(EXTREMAMENTE_BASICO_ARRANGE + "#somaValida")
-	@DisplayName("Deve somar com dados validos.")
-	void deveSomarComDadosValidos(int a, int b, int esperado){
-		int resultado = test.soma(a, b);
-
-		assertAll("Soma",
-				() -> assertEquals(esperado, resultado, "Resultado deveria ser igual ao esperado."));
-	}
-
-	@ParameterizedTest(name = "Arranjo {index} : {0} + {1} = {2}")
-	@MethodSource(EXTREMAMENTE_BASICO_ARRANGE + "#somaValida")
-	@DisplayName("Deve ler entrada e somar.")
-	void deveLerEntradaSomar(int a, int b, int esperado){
-		System.setIn(getByteArrayInputStream(a, b));
-		int resultado = test.somaInputs();
-
-		assertAll("Soma Inputs",
-				() -> assertEquals(esperado, resultado, "Resultado deveria ser igual ao esperado."));
-	}
-
-	@ParameterizedTest(name = "Arranjo {index} : {0} + {1} = {2}")
-	@MethodSource(EXTREMAMENTE_BASICO_ARRANGE + "#mensagemValida")
+	@MethodSource(EXTREMAMENTE_BASICO_ARRANGE + "#somaDeDoisNumeros")
 	@DisplayName("Deve retornar mensagem correta.")
 	void deveRetornarMensagemCorreta(int a, int b, String esperado){
 		System.setIn(getByteArrayInputStream(a, b));
 
-		String resultado = test.retornaMensagem();
+		String resultado = test.execute();
 
 		assertAll("Soma Inputs",
 				() -> assertEquals(esperado, resultado, "Resultado deveria ser igual ao esperado."));

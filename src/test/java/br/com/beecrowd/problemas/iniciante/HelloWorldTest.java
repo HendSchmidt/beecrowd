@@ -1,5 +1,6 @@
 package br.com.beecrowd.problemas.iniciante;
 
+import br.com.beecrowd.problemas.iniciante.impl.HelloWorld;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,7 +18,7 @@ public class HelloWorldTest {
 	void deveRetornarMensagemCorreta(String esperado){
 		HelloWorld test = new HelloWorld();
 
-		String retornado = test.message();
+		String retornado = test.execute();
 
 		assertAll("Mensagem",
 				() -> assertEquals(esperado, retornado, "À mensagem retornada deve ser igual."));
