@@ -5,15 +5,15 @@ import br.com.beecrowd.problemas.iniciante.Executavel;
 import java.util.List;
 import java.util.Scanner;
 
-public class ExtremamenteBasico implements Executavel {
+public class SomaSimples implements Executavel {
 	@Override
 	public String execute() {
-		List<Integer> numeros = input();
-		return retornaMensagem(soma(numeros.get(0), numeros.get(1)));
+		List<Integer> input = input();
+		return retornaMensagem(soma(input.get(0), input.get(1)));
 	}
 
 	private String retornaMensagem(Integer resultado){
-		return "X = " + resultado;
+		return "SOMA = " + resultado;
 	}
 
 	private List<Integer> input(){
