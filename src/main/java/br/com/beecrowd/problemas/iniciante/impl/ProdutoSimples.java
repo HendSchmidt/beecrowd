@@ -5,24 +5,24 @@ import br.com.beecrowd.problemas.iniciante.Executavel;
 import java.util.List;
 import java.util.Scanner;
 
-public class SomaSimples implements Executavel {
+public class ProdutoSimples implements Executavel {
 	@Override
 	public String execute() {
-		return retornaMensagem(soma(input()));
+		return retornaMensagem(calculaProduto(input()));
 	}
 
-	private String retornaMensagem(Integer resultado){
-		return "SOMA = " + resultado;
+	private Integer calculaProduto(List<Integer> numeros) {
+		return numeros.stream().reduce(1, (a, b) -> a * b);
 	}
 
-	private List<Integer> input(){
+	private List<Integer> input() {
 		Scanner scanner = new Scanner(System.in);
 		int a = scanner.nextInt();
 		int b = scanner.nextInt();
 		return List.of(a, b);
 	}
 
-	private int soma(List<Integer> numeros) {
-		return numeros.stream().reduce(0, Integer::sum);
+	private String retornaMensagem(Integer resultado) {
+		return "PROD = " + resultado;
 	}
 }
