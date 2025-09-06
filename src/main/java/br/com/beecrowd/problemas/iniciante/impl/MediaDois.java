@@ -9,11 +9,11 @@ import java.text.DecimalFormatSymbols;
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class Media1 implements Executavel {
-	List<Double> pesos = List.of(3.5, 7.5);
+public class MediaDois implements Executavel {
+	List<Double> pesos = List.of(2.0, 3.0, 5.0);
 	@Override
 	public String execute() {
-		return retornaMensagem(calculaMedia(input(), pesos), getDecimalFormat("0.00000", Locale.US));
+		return retornaMensagem(calculaMedia(input(), pesos), getDecimalFormat("0.0", Locale.US));
 	}
 
 	private Double calculaMedia(List<Double> numeros, List<Double> pesos){
@@ -26,8 +26,10 @@ public class Media1 implements Executavel {
 		validaInput(a);
 		double b = in.nextDouble();
 		validaInput(b);
+		double c = in.nextDouble();
+		validaInput(c);
 
-		return List.of(a, b);
+		return List.of(a, b, c);
 	}
 
 	private String retornaMensagem(Double resultado, DecimalFormat formato){
