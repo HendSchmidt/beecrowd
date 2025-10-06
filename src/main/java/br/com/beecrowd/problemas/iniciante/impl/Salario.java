@@ -24,7 +24,7 @@ public class Salario implements Executavel {
 				resultado.get("salario"));
 	}
 
-	private List<Number> input(){
+	private List<Number> input() {
 		Scanner in = new Scanner(System.in);
 		Integer a = in.nextInt();
 		validaInput(a);
