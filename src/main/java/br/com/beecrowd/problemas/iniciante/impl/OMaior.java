@@ -20,8 +20,9 @@ public class OMaior implements Executavel {
     }
 
     private Maior input() {
-        Scanner in = new Scanner(System.in);
-        return new Maior(in.nextInt(), in.nextInt(), in.nextInt());
+        try (Scanner in = new Scanner(System.in)) {
+            return new Maior(in.nextInt(), in.nextInt(), in.nextInt());
+        }
     }
 
     private record Maior(int a, int b, int c) {

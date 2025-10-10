@@ -12,7 +12,7 @@ public class Area implements Executavel {
 
 	private static String retornaMensagem(ResultadosArea resultado) {
 		return String.format(Locale.US, "TRIANGULO: %.3f\nCIRCULO: %.3f\n" +
-						"TRAPEZIO: %.3f\nQUADRADO: %.3f\nRETANGULO: %.3f",
+				"TRAPEZIO: %.3f\nQUADRADO: %.3f\nRETANGULO: %.3f",
 				resultado.triangulo(),
 				resultado.circulo(),
 				resultado.trapezio(),
@@ -29,10 +29,12 @@ public class Area implements Executavel {
 	}
 
 	private AreaInput input() {
-		Scanner in = new Scanner(System.in);
-		in.useLocale(Locale.US);
+		try (Scanner in = new Scanner(System.in)) {
+			in.useLocale(Locale.US);
 
-		return new AreaInput(in.nextDouble(), in.nextDouble(), in.nextDouble());
+			return new AreaInput(in.nextDouble(), in.nextDouble(), in.nextDouble());
+		}
+
 	}
 
 	private record AreaInput(double a, double b, double c) {
@@ -60,9 +62,9 @@ public class Area implements Executavel {
 	}
 
 	private record ResultadosArea(double triangulo,
-								  double circulo,
-								  double trapezio,
-								  double quadrado,
-								  double retangulo) {
+			double circulo,
+			double trapezio,
+			double quadrado,
+			double retangulo) {
 	}
 }

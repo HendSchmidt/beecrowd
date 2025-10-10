@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import br.com.beecrowd.problemas.iniciante.impl.OMaior;
 
 class OMaiorTest {
-    private static final String ESFERA_ARRANGE = "br.com.beecrowd.problemas.iniciante.arrange.MaiorArrange";
+    private static final String ESFERA_ARRANGE = "br.com.beecrowd.problemas.iniciante.arrange.OMaiorArrange";
     private static final String METHOD_SOURCE_ARRANGE_CORRETO = ESFERA_ARRANGE + "#arrangeCorreto";
 
     @ParameterizedTest(name = "Arranjo {index} : {0} -> {1}")
