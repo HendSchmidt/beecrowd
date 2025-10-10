@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Calculo simples")
-public class CalculoSimplesTest {
+class CalculoSimplesTest {
 	private static final String CALCULO_SIMPLES_ARRANGE = "br.com.beecrowd.problemas.iniciante.arrange.CalculoSimplesArrange";
-	private static final String METHOD_SOURCE_ARRANGE_CORRETO = "br.com.beecrowd.problemas.iniciante.arrange.CalculoSimplesArrange#arrangeCorreto";
+	private static final String METHOD_SOURCE_ARRANGE_CORRETO = CALCULO_SIMPLES_ARRANGE + "#arrangeCorreto";
 
 	@ParameterizedTest(name = "Arranjo {index} : {0} -> {2}")
 	@MethodSource(METHOD_SOURCE_ARRANGE_CORRETO)

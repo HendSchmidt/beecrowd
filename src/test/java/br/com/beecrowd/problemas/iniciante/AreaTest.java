@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Area")
-public class AreaTest {
+class AreaTest {
 	private static final String AREA_ARRANGE = "br.com.beecrowd.problemas.iniciante.arrange.AreaArrange";
 	private static final String METHOD_SOURCE_ARRANGE_CORRETO = AREA_ARRANGE + "#arrangeCorreto";
 
