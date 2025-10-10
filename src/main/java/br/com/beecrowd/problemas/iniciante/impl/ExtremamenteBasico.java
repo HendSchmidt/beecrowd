@@ -17,10 +17,11 @@ public class ExtremamenteBasico implements Executavel {
 	}
 
 	private List<Integer> input(){
-		Scanner scanner = new Scanner(System.in);
-		int a = scanner.nextInt();
-		int b = scanner.nextInt();
-		return List.of(a, b);
+		try (Scanner scanner = new Scanner(System.in)) {
+			int a = scanner.nextInt();
+			int b = scanner.nextInt();
+			return List.of(a, b);
+		}
 	}
 
 	private int soma(int a, int b) {

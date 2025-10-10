@@ -24,10 +24,12 @@ public class CalculoSimples implements Executavel {
 	}
 
 	private List<Peca> input() {
-		Scanner in = new Scanner(System.in);
-		in.useLocale(Locale.US);
-		return IntStream.range(0, 2).mapToObj(i -> new Peca(in.nextInt(), in.nextInt(), in.nextBigDecimal())).toList();
+		try (Scanner in = new Scanner(System.in)) {
+			in.useLocale(Locale.US);
 
+			return IntStream.range(0, 2).mapToObj(i -> new Peca(in.nextInt(), in.nextInt(), in.nextBigDecimal()))
+					.toList();
+		}
 	}
 
 	private record Peca(int codigo, int quantidade, BigDecimal valor) {

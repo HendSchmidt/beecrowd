@@ -12,10 +12,10 @@ public class AreaDoCirculo implements Executavel {
 
 	@Override
 	public String execute() {
-		return retornaMensagem(calculaAreaDoCirculo(input()),getDecimalFormat("0.0000", Locale.US));
+		return retornaMensagem(calculaAreaDoCirculo(input()), getDecimalFormat("0.0000", Locale.US));
 	}
 
-	private String retornaMensagem(Double resultado, DecimalFormat formato){
+	private String retornaMensagem(Double resultado, DecimalFormat formato) {
 		return "A=" + formato.format(resultado);
 	}
 
@@ -24,12 +24,13 @@ public class AreaDoCirculo implements Executavel {
 		return new DecimalFormat(pattern, symbols);
 	}
 
-	private double input(){
-		Scanner in = new Scanner(System.in);
-		return in.nextDouble();
+	private double input() {
+		try (Scanner in = new Scanner(System.in)) {
+			return in.nextDouble();
+		}
 	}
 
-	private double calculaAreaDoCirculo(double raio){
+	private double calculaAreaDoCirculo(double raio) {
 		return pi * (raio * raio);
 	}
 }

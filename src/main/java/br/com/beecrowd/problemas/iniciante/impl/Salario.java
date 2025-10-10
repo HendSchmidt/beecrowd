@@ -10,7 +10,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
-
 public class Salario implements Executavel {
 	@Override
 	public String execute() {
@@ -25,24 +24,24 @@ public class Salario implements Executavel {
 	}
 
 	private List<Number> input() {
-		Scanner in = new Scanner(System.in);
-		Integer a = in.nextInt();
-		validaInput(a);
-		Integer b = in.nextInt();
-		validaInput(b);
-		BigDecimal c = in.nextBigDecimal();
-		validaInput(c);
+		try (Scanner in = new Scanner(System.in)) {
+			Integer a = in.nextInt();
+			validaInput(a);
+			Integer b = in.nextInt();
+			validaInput(b);
+			BigDecimal c = in.nextBigDecimal();
+			validaInput(c);
 
-		return List.of(a, b, c);
+			return List.of(a, b, c);
+		}
 	}
 
-
-	private void validaInput(Number numero){
-		if(numero == null){
+	private void validaInput(Number numero) {
+		if (numero == null) {
 			throw new IllegalArgumentException("Numero não deve ser nulo.");
 		}
 
-		if(numero instanceof BigDecimal numeroAuxiliar){
+		if (numero instanceof BigDecimal numeroAuxiliar) {
 			try {
 				numeroAuxiliar.setScale(2, RoundingMode.UNNECESSARY);
 			} catch (ArithmeticException e) {
@@ -51,14 +50,15 @@ public class Salario implements Executavel {
 		}
 	}
 
-	private Map<String, BigDecimal> calculaSalario(List<Number> input){
+	private Map<String, BigDecimal> calculaSalario(List<Number> input) {
 		Map<String, BigDecimal> resultado = new HashMap<>();
 		resultado.put("nome", new BigDecimal(input.get(0).toString()));
-		resultado.put("salario", new BigDecimal(input.stream().skip(1).reduce(1, this::calculaHorasTrabalhadas).toString()));
+		resultado.put("salario",
+				new BigDecimal(input.stream().skip(1).reduce(1, this::calculaHorasTrabalhadas).toString()));
 		return resultado;
 	}
 
-	private BigDecimal calculaHorasTrabalhadas(Number horas, Number valor){
+	private BigDecimal calculaHorasTrabalhadas(Number horas, Number valor) {
 		BigDecimal a = new BigDecimal(horas.toString());
 		BigDecimal b = new BigDecimal(valor.toString());
 

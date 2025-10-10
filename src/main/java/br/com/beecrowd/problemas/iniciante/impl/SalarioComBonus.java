@@ -20,7 +20,7 @@ public class SalarioComBonus implements Executavel {
 		return String.format(Locale.US, "TOTAL = R$ %.2f", resultado);
 	}
 
-	private BigDecimal calculaBonus (List<Object> input) {
+	private BigDecimal calculaBonus(List<Object> input) {
 		var salario = new BigDecimal(input.get(1).toString());
 		var bonus = new BigDecimal(input.get(2).toString())
 				.multiply(new BigDecimal("15"))
@@ -29,13 +29,13 @@ public class SalarioComBonus implements Executavel {
 		return salario.add(bonus);
 	}
 
-	private List<Object> input(){
-		Scanner in = new Scanner(System.in);
+	private List<Object> input() {
+		try (Scanner in = new Scanner(System.in)) {
+			String a = in.next();
+			BigDecimal b = in.nextBigDecimal();
+			BigDecimal c = in.nextBigDecimal();
 
-		String a = in.next();
-		BigDecimal b = in.nextBigDecimal();
-		BigDecimal c = in.nextBigDecimal();
-
-		return List.of(a, b, c);
+			return List.of(a, b, c);
+		}
 	}
 }

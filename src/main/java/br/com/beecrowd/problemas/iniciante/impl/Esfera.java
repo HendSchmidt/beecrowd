@@ -23,8 +23,9 @@ public class Esfera implements Executavel {
 
 
 	private Raio input(){
-		Scanner in = new Scanner(System.in);
-		return new Raio(in.nextDouble());
+		try (Scanner in = new Scanner(System.in)) {
+			return new Raio(in.nextDouble());
+		}
 	}
 
 	private record Raio(double raio){

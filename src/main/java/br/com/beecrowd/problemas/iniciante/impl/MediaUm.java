@@ -21,13 +21,14 @@ public class MediaUm implements Executavel {
 	}
 
 	private List<Double> input(){
-		Scanner in = new Scanner(System.in);
-		double a = in.nextDouble();
-		validaInput(a);
-		double b = in.nextDouble();
-		validaInput(b);
+		try (Scanner in = new Scanner(System.in)) {
+			double a = in.nextDouble();
+			validaInput(a);
+			double b = in.nextDouble();
+			validaInput(b);
 
-		return List.of(a, b);
+			return List.of(a, b);
+		}
 	}
 
 	private String retornaMensagem(Double resultado, DecimalFormat formato){

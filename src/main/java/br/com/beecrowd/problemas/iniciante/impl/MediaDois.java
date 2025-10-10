@@ -21,15 +21,16 @@ public class MediaDois implements Executavel {
 	}
 
 	private List<Double> input(){
-		Scanner in = new Scanner(System.in);
-		double a = in.nextDouble();
-		validaInput(a);
-		double b = in.nextDouble();
-		validaInput(b);
-		double c = in.nextDouble();
-		validaInput(c);
+		try (Scanner in = new Scanner(System.in)) {
+			double a = in.nextDouble();
+			validaInput(a);
+			double b = in.nextDouble();
+			validaInput(b);
+			double c = in.nextDouble();
+			validaInput(c);
 
-		return List.of(a, b, c);
+			return List.of(a, b, c);
+		}
 	}
 
 	private String retornaMensagem(Double resultado, DecimalFormat formato){

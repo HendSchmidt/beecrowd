@@ -29,12 +29,13 @@ public class Diferenca implements Executavel {
 	}
 
 	private List<Integer> input() {
-		Scanner scanner = new Scanner(System.in);
-		int a = scanner.nextInt();
-		int b = scanner.nextInt();
-		int c = scanner.nextInt();
-		int d = scanner.nextInt();
-		return List.of(a, b, c, d);
+		try (Scanner scanner = new Scanner(System.in)) {
+			int a = scanner.nextInt();
+			int b = scanner.nextInt();
+			int c = scanner.nextInt();
+			int d = scanner.nextInt();
+			return List.of(a, b, c, d);
+		}
 	}
 
 	private String retornaMensagem(Integer resultado) {
