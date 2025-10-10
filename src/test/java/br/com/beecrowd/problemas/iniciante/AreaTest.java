@@ -1,7 +1,6 @@
 package br.com.beecrowd.problemas.iniciante;
 
 import br.com.beecrowd.problemas.iniciante.impl.Area;
-import br.com.beecrowd.problemas.iniciante.impl.CalculoSimples;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
